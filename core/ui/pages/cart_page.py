@@ -140,6 +140,9 @@ class CartPage:
     def select_approved_payment_result(self):
         self.payment_result_dropdown.select_option_by_value("approved")
 
+    def select_declined_payment_result(self):
+        self.payment_result_dropdown.select_option_by_value("declined")
+
     def click_on_place_order_button(self):
         self.place_order_button.click()
 
@@ -160,3 +163,8 @@ class CartPage:
 
     def assert_that_invalid_coupon_error_is_visible(self):
         self.checkout_error.assert_is_visible()
+        self.checkout_error.assert_text("422 · Невідомий промокод")
+
+    def assert_that_payment_error_message_is_visible(self):
+        self.checkout_error.assert_is_visible()
+        self.checkout_error.assert_text("402 · Тестовий платіж відхилено")

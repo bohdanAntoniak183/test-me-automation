@@ -46,14 +46,27 @@ class OrderItem(WebElement):
             parent=self.__details
         )
 
+        self.cancel_order_button = WebElement(
+            browser=browser,
+            locator="//div[@class='order-actions']//button[@data-cancel]",
+            description="Кнопка 'Скасувати замовлення'",
+            parent=self
+        )
+
     def get_order_id(self):
         return self.order_id.get_text()
 
     def click_on_details_button(self):
         self.details_button.click()
 
+    def click_on_cancel_order_button(self):
+        self.cancel_order_button.click()
+
     def assert_status_is_approved(self):
         self.status.assert_text("Підтверджено")
+
+    def assert_status_is_cancelled(self):
+        self.status.assert_text("Скасовано")
 
     def assert_order_id_is(self, order_id):
         self.order_id.assert_text(order_id)
