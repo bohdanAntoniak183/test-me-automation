@@ -32,8 +32,18 @@ class CartItem(WebElement):
             parent=self
         )
 
+        self.remove_item_from_cart_button = WebElement(
+            browser=browser,
+            locator="//button[@class='remove-line']",
+            description="Кнопка 'Видалити'",
+            parent=self
+        )
+
     def click_on_add_quantity_button(self):
         self.add_quantity_button.click()
+
+    def remove_item_from_the_cart(self):
+        self.remove_item_from_cart_button.click()
 
     def assert_title(self, value):
         self.title.assert_text(value)
