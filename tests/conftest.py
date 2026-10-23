@@ -1,5 +1,7 @@
 import pytest
 
+from core.api.api_client import APIClient
+
 def pytest_addoption(parser):
     parser.addoption(
         "--headless",
@@ -22,3 +24,7 @@ def base_url(request):
 @pytest.fixture(scope="session")
 def headless(request):
     return request.config.getoption("--headless")
+
+@pytest.fixture(scope="function")
+def api_client(base_url):
+    return APIClient(base_url)
