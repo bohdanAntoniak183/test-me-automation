@@ -62,6 +62,13 @@ class WebElement:
             message=f"Не вдалось обрати опцію за значенням '{option}' в елементі '{self.description}'"
         )
 
+    def assert_is_visible(self):
+        self.logger.info(f"Перевірка, що елемент '{self.description}' видимий")
+        self.waiter.until(
+            lambda _: self.__get().is_displayed(),
+            message=f"Елемент '{self.description}' не є видимим."
+        )
+
     def assert_text(self, expected_text):
         self.logger.info(f"Перевірка, що текст елемента '{self.description}' дорівнює '{expected_text}'")
         self.waiter.until(

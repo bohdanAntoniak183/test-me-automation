@@ -111,6 +111,13 @@ class CartPage:
             parent=self.__cart
         )
 
+        self.checkout_error = WebElement(
+            browser=browser,
+            locator="//p[@id='checkout-error']",
+            description="Помилка у корзині під час оформлення замовлення",
+            parent=self.__cart
+        )
+
     def enter_coupon(self, coupon_name):
         self.coupon_input.enter_value(coupon_name)
         self.apply_coupon_button.click()
@@ -147,3 +154,6 @@ class CartPage:
 
     def assert_that_total_is(self, total):
         self.total_price.assert_text(total)
+
+    def assert_that_invalid_coupon_error_is_visible(self):
+        self.checkout_error.assert_is_visible()
