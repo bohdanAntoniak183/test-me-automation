@@ -25,6 +25,16 @@ class CartItem(WebElement):
             parent=self
         )
 
+        self.add_quantity_button = WebElement(
+            browser=browser,
+            locator="//div[@class='quantity']//button[@data-delta='1']",
+            description=f"Кнопка збільшення кількості товару на 1.",
+            parent=self
+        )
+
+    def click_on_add_quantity_button(self):
+        self.add_quantity_button.click()
+
     def assert_title(self, value):
         self.title.assert_text(value)
 
