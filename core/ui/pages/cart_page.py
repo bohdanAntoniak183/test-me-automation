@@ -125,6 +125,9 @@ class CartPage:
     def select_standard_delivery_option(self):
         self.delivery_dropdown.select_option_by_value("standard")
 
+    def select_express_delivery_option(self):
+        self.delivery_dropdown.select_option_by_value("express")
+
     def enter_customer_name(self, customer_name):
         self.customer_name_input.enter_value(customer_name)
 
