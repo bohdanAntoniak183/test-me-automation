@@ -24,7 +24,7 @@ pip install -r requirements.txt
 Запустіть усі UI та API тести з кореня проєкту:
 
 ```
-python -m pytest tests/ --url "адреса тестового середовища"* --self-contained-html --html=reports/report.html -n 4 --headless
+python -m pytest tests/ --url "адреса тестового середовища" --self-contained-html --html=reports/report.html -n 4 --headless
 ```
 
 Параметри команди:
