@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from core.api.services.products_service import ProductsService
 from core.api.services.quote_service import QuoteService
 from core.api.services.orders_service import OrdersService
@@ -28,7 +30,7 @@ def test_tm_checkout_006(api_client):
     delivery_address = "Київ, вул. Тестова, 12"
 
     products_response = products_service.get_products()
-    assert products_response.status_code == 200, f"Помилка отримання каталогу: {products_response.text}"
+    assert products_response.status_code == HTTPStatus.OK, f"Помилка отримання каталогу: {products_response.text}"
 
     parsed_products = ProductsCatalogResponse.from_dict(products_response.json())
     target_product = next((product for product in parsed_products.items if item_name == product.name), None)
@@ -42,7 +44,7 @@ def test_tm_checkout_006(api_client):
         delivery_type=DeliveryType.STANDARD
     )
     quote_response = quote_service.calculate_quote(quote_payload)
-    assert quote_response.status_code == 200, f"Помилка розрахунку кошика: {quote_response.text}"
+    assert quote_response.status_code == HTTPStatus.OK, f"Помилка розрахунку кошика: {quote_response.text}"
 
     cart_summary = Totals.from_dict(quote_response.json())
 
@@ -64,7 +66,7 @@ def test_tm_checkout_006(api_client):
     )
 
     order_response = orders_service.create_order(order_payload)
-    assert order_response.status_code == 201, f"Помилка створення замовлення: {order_response.text}"
+    assert order_response.status_code == HTTPStatus.CREATED, f"Помилка створення замовлення: {order_response.text}"
 
     order = OrdersResponse.from_dict(order_response.json())
 
@@ -72,5 +74,5 @@ def test_tm_checkout_006(api_client):
     assert order.totals.total == total_price
 
     details_response = orders_service.get_order_details(order.id)
-    assert details_response.status_code == 200, f"Помилка отримання деталей замовлення: {details_response.text}"
+    assert details_response.status_code == HTTPStatus.OK, f"Помилка отримання деталей замовлення: {details_response.text}"
     assert OrdersResponse.from_dict(details_response.json()) == order
