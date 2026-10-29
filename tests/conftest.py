@@ -28,3 +28,8 @@ def headless(request):
 @pytest.fixture(scope="function")
 def api_client(base_url):
     return APIClient(base_url)
+
+# Наступний рядок дозволяє отримати нове окреме середовище,
+# яке можна буде використовувати для окремого тесту (тобто окремий тест
+# буде мати доступ до двох різних середовищ одночасно).
+second_api_client = api_client
