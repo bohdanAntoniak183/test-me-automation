@@ -8,5 +8,8 @@ class OrdersService:
     def create_order(self, payload: OrdersPayload):
         return self.client.post("api/orders", payload=payload.to_dict())
 
+    def cancel_order(self, order_id: str):
+        return self.client.post(f"api/orders/{order_id}/cancel")
+
     def get_order_details(self, order_id: str):
         return self.client.get(f"api/orders/{order_id}")
