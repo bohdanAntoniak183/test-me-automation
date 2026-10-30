@@ -27,3 +27,9 @@ class ProductsService:
         }
 
         return self.client.get("api/products", params=params)
+
+    def get_product_review(self, product_id):
+        return self.client.get(f"api/products/{product_id}/review")
+
+    def leave_product_review(self, product_id, review_payload):
+        return self.client.post(f"api/products/{product_id}/review", payload=review_payload.to_dict())

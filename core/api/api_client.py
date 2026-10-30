@@ -75,3 +75,6 @@ class APIClient:
 
     def post(self, endpoint: str, payload: dict = None) -> requests.Response:
         return self._request_with_retry("POST", endpoint, json=payload)
+
+    def put(self, endpoint: str, payload: dict = None) -> requests.Response:
+        return self._request_with_retry("PUT", endpoint, json=payload)
