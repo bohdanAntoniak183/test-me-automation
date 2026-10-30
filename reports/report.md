@@ -4,8 +4,8 @@
 
 | Показник | Результат |
 | --- | ---: |
-| Усього тестів | 10 |
-| Пройшли | 8 |
+| Усього тестів | 11 |
+| Пройшли | 9 |
 | Не пройшли | 2 |
 | Пропущені | 0 |
 | Помилки під час виконання | 0 |
@@ -17,6 +17,7 @@
 | `tests/api/test_tm_catalog_001.py::test_tm_checkout_001` | Пройшов |
 | `tests/api/test_tm_checkout_006.py::test_tm_checkout_006` | Пройшов |
 | `tests/api/test_tm_checkout_007.py::test_tm_checkout_007` | Не пройшов |
+| `tests/api/test_tm_favorite_review_001.py::test_tm_favorite_review_001` | Пройшов |
 | `tests/api/test_tm_isolation_001.py::test_tm_isolation_001` | Пройшов |
 | `tests/ui/test_tm_cart_001.py::test_tm_cart_001` | Пройшов |
 | `tests/ui/test_tm_checkout_001.py::test_tm_checkout_001` | Пройшов |
