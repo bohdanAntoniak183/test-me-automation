@@ -14,7 +14,7 @@ from core.api.models.delivery_type import DeliveryType
 from core.api.models.orders_service.payment_status import PaymentStatus
 from core.api.models.orders_service.order_status import OrderStatus
 
-def test_tm_catalog_001(api_client):
+def test_tm_favorite_review_001(api_client):
 
     products_service = ProductsService(api_client)
     favorites_service = FavoritesService(api_client)
